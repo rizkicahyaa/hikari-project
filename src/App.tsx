@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Manga from "./pages/Manga";
 // import MangaDetail from "./pages/MangaDetail";
-// import Characters from "./pages/Characters";
+import Characters from "./pages/Characters";
 // import CharacterDetail from "./pages/CharacterDetail";
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
                         <Route path="/manga" element={<Manga />} />
                         {/* <Route path="/manga/:id" element={<MangaDetail />} /> */}
 
-                        {/* <Route path="/characters" element={<Characters />} />
-                        <Route path="/character/:id" element={<CharacterDetail />} /> */}
+                        <Route path="/characters" element={<Characters />} />
+                        {/* <Route path="/character/:id" element={<CharacterDetail />} /> */}
                     </Routes>
                 </main>
             </div>
