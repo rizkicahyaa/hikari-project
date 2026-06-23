@@ -18,10 +18,6 @@ export default function Navbar() {
             name: "Characters",
             path: "/characters",
         },
-        {
-            name: "Favorites",
-            path: "/favorites",
-        },
     ];
 
     return (

@@ -14,7 +14,7 @@ function Manga() {
 
             <div className="grid md:grid-cols-4 gap-4">
                 {manga.map((item: any) => (
-                    <div key={item.mal_id} className="bg-zinc-900 rounded-lg overflow-hidden">
+                    <div key={item.mal_id} className="bg-zinc-900 rounded-lg overflow-hidden text-center">
                         <img src={item.images.jpg.large_image_url} alt={item.title} className="object-cover h-80 m-auto" />
 
                         <div className="px-5 py-3 ">

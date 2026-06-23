@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Manga from "./pages/Manga";
 // import MangaDetail from "./pages/MangaDetail";
 import Characters from "./pages/Characters";
+import Search from "./pages/Search";
 // import CharacterDetail from "./pages/CharacterDetail";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                         {/* <Route path="/manga/:id" element={<MangaDetail />} /> */}
 
                         <Route path="/characters" element={<Characters />} />
+                        <Route path="/search" element={<Search />} />
                         {/* <Route path="/character/:id" element={<CharacterDetail />} /> */}
                     </Routes>
                 </main>

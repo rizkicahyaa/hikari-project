@@ -53,7 +53,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            {/* <section className="max-w-7xl mx-auto px-6 py-20">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-3xl font-bold">Trending Manga</h2>
 
@@ -74,7 +74,7 @@ export default function Home() {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section> */}
 
             <section className="max-w-7xl mx-auto px-6 py-20">
                 <div className="bg-gradient-to-r from-violet-600/10 to-cyan-500/10 border border-zinc-800 rounded-3xl p-10">
