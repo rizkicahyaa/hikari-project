@@ -37,7 +37,7 @@ export default function Search() {
         try {
             setLoading(true);
 
-            const [mangaRes, characterRes] = await Promise.all([fetch(`https://api.jikan.moe/v4/manga?q=${query}&limit=8`), fetch(`https://api.jikan.moe/v4/characters?q=${query}&limit=8`)]);
+            const [mangaRes, characterRes] = await Promise.all([fetch(`https://api.jikan.moe/v4/manga?q=${query}&limit=8`), fetch(`https://api.jikan.moe/v4/characters?q=${query}&limit=15`)]);
 
             const mangaData = await mangaRes.json();
             const characterData = await characterRes.json();
