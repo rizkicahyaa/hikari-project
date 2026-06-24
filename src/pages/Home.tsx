@@ -1,7 +1,40 @@
+import { useEffect, useState } from "react";
 import { BookOpen, Users, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+interface Manga {
+    mal_id: number;
+    title: string;
+    score: number;
+    images: {
+        jpg: {
+            large_image_url: string;
+        };
+    };
+}
+
 export default function Home() {
+    const [trendingManga, setTrendingManga] = useState<Manga[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchTrendingManga = async () => {
+            try {
+                const res = await fetch("https://api.jikan.moe/v4/top/manga?limit=10");
+
+                const data = await res.json();
+
+                setTrendingManga(data.data);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTrendingManga();
+    }, []);
+
     return (
         <div className="min-h-screen bg-zinc-950 text-white">
             <section className="relative overflow-hidden">
@@ -53,7 +86,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="max-w-7xl mx-auto px-6 py-20">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-3xl font-bold">Trending Manga</h2>
 
@@ -62,19 +95,41 @@ export default function Home() {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
-                    {[1, 2, 3, 4, 5].map((item) => (
-                        <div key={item} className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
-                            <div className="h-72 bg-zinc-800 animate-pulse" />
+                {loading ? (
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
+                        {[...Array(5)].map((_, index) => (
+                            <div key={index} className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+                                <div className="h-72 bg-zinc-800 animate-pulse" />
 
-                            <div className="p-4">
-                                <div className="h-4 bg-zinc-800 rounded animate-pulse mb-2" />
-                                <div className="h-4 w-20 bg-zinc-800 rounded animate-pulse" />
+                                <div className="p-4">
+                                    <div className="h-4 bg-zinc-800 rounded animate-pulse mb-2" />
+                                    <div className="h-4 w-20 bg-zinc-800 rounded animate-pulse" />
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </section> */}
+                        ))}
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
+                        {trendingManga.map((manga) => (
+                            <Link key={manga.mal_id} to={`/manga/${manga.mal_id}`} className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-violet-500 transition">
+                                <div className="overflow-hidden">
+                                    <img src={manga.images.jpg.large_image_url} alt={manga.title} className="w-full h-72 object-cover group-hover:scale-105 transition duration-300" />
+                                </div>
+
+                                <div className="p-4">
+                                    <h3 className="font-semibold line-clamp-2 min-h-[48px]">{manga.title}</h3>
+
+                                    <div className="flex items-center justify-between mt-3">
+                                        <span className="text-yellow-400 text-sm">⭐ {manga.score ?? "N/A"}</span>
+
+                                        <span className="text-xs text-zinc-500">#{trendingManga.indexOf(manga) + 1}</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </section>
 
             <section className="max-w-7xl mx-auto px-6 py-20">
                 <div className="bg-gradient-to-r from-violet-600/10 to-cyan-500/10 border border-zinc-800 rounded-3xl p-10">
