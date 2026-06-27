@@ -63,30 +63,6 @@ export default function Home() {
             </section>
 
             <section className="max-w-7xl mx-auto px-6 py-20">
-                <h2 className="text-3xl font-bold mb-10">Why HikariProject?</h2>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-                        <BookOpen className="text-violet-400 mb-4" size={40} />
-                        <h3 className="font-semibold text-xl mb-2">Huge Manga Database</h3>
-                        <p className="text-zinc-400">Browse thousands of manga with detailed information, ratings, genres, and recommendations.</p>
-                    </div>
-
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-                        <Users className="text-cyan-400 mb-4" size={40} />
-                        <h3 className="font-semibold text-xl mb-2">Character Encyclopedia</h3>
-                        <p className="text-zinc-400">Explore anime characters, appearances, voice actors, and their stories.</p>
-                    </div>
-
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-                        <Star className="text-yellow-400 mb-4" size={40} />
-                        <h3 className="font-semibold text-xl mb-2">Top Rankings</h3>
-                        <p className="text-zinc-400">Discover the highest rated manga and most popular anime characters.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section className="max-w-7xl mx-auto px-6 py-20">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-3xl font-bold">Trending Manga</h2>
 
@@ -129,27 +105,6 @@ export default function Home() {
                         ))}
                     </div>
                 )}
-            </section>
-
-            <section className="max-w-7xl mx-auto px-6 py-20">
-                <div className="bg-gradient-to-r from-violet-600/10 to-cyan-500/10 border border-zinc-800 rounded-3xl p-10">
-                    <div className="grid md:grid-cols-3 gap-8 text-center">
-                        <div>
-                            <h3 className="text-5xl font-bold text-violet-400">10K+</h3>
-                            <p className="text-zinc-400 mt-2">Manga Database</p>
-                        </div>
-
-                        <div>
-                            <h3 className="text-5xl font-bold text-cyan-400">5K+</h3>
-                            <p className="text-zinc-400 mt-2">Anime Characters</p>
-                        </div>
-
-                        <div>
-                            <h3 className="text-5xl font-bold text-pink-400">∞</h3>
-                            <p className="text-zinc-400 mt-2">Recommendations</p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section className="max-w-7xl mx-auto px-6 pb-20">
